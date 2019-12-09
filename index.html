@@ -106,7 +106,7 @@
     document.getElementById('areaId').addEventListener('focus', () =>{
       interval = setInterval(() =>{
         
-        console.log('focado');
+       // console.log('focado');
         
         var ids = identifierId();
         if(ids) {
@@ -115,11 +115,11 @@
           var lis = ids.map(id => {
             var li = document.createElement('li');
             li.textContent = `Esse idpessoa foi mencionado -- ${id}`;
-            console.log(lis);
+           // console.log(lis);
             return li;
           })
           
-          console.log(lis);
+          //console.log(lis);
 
           for (let index = 0; index < lis.length; index++) {
             const element = lis[index];
