@@ -89,25 +89,21 @@
     }
    */
 
-   function identifierId() {
-     
-    var html = document.getElementById('areaId').innerHTML;
-    var isMatch = html.match(/data[a-z-="0-9]+/ig)
-    if(isMatch) {
-    var ids = isMatch.map(elemMatch => Number(elemMatch.match(/[0-9]+/ig)));
-    var filteredIds = ids.filter((id,index) => ids.indexOf(id) === index);
-    return filteredIds;
-    } else {
-      return false;
+    function identifierId() { 
+      var html = document.getElementById('areaId').innerHTML;
+      var isMatch = html.match(/data[a-z-="0-9]+/ig)
+      if(isMatch) {
+      var ids = isMatch.map(elemMatch => Number(elemMatch.match(/[0-9]+/ig)));
+      var filteredIds = ids.filter((id,index) => ids.indexOf(id) === index);
+      return filteredIds;
+      } else {
+        return false;
       }
-   }
+    }
 
     var interval = '';
     document.getElementById('areaId').addEventListener('focus', () =>{
       interval = setInterval(() =>{
-        
-       // console.log('focado');
-        
         var ids = identifierId();
         if(ids) {
           document.getElementById('results').innerHTML = '';
@@ -115,12 +111,9 @@
           var lis = ids.map(id => {
             var li = document.createElement('li');
             li.textContent = `Esse idpessoa foi mencionado -- ${id}`;
-           // console.log(lis);
             return li;
           })
           
-          //console.log(lis);
-
           for (let index = 0; index < lis.length; index++) {
             const element = lis[index];
             ul.appendChild(element);
@@ -137,7 +130,6 @@
     document.getElementById('areaId').addEventListener('focusout', () =>{
       clearInterval(interval);
     })
-
   </script>
 </body>
 
